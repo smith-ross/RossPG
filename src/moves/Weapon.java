@@ -15,7 +15,7 @@ public class Weapon extends Damager {
 	}
 	
 	public void scaleDamage(Player plr) {
-		baseDamage = initialBaseDamage * plr.getLevel() * LEVEL_SCALE_MODIFIER;
+		baseDamage = (int)(initialBaseDamage * plr.getLevel() * LEVEL_SCALE_MODIFIER);
 	}
 	
 }
