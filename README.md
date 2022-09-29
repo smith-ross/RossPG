@@ -1,2 +1,2 @@
 # RossPG
-Classic turn-based RPG implemented in Java.
+Classic text turn-based RPG implemented in Java.
