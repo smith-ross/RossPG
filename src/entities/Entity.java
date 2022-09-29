@@ -1,6 +1,7 @@
 package entities;
 
 import status.StatusEffect;
+import java.util.ArrayList;
 
 public abstract class Entity {
 	
@@ -8,7 +9,7 @@ public abstract class Entity {
 	private int maxHealth;
 	private int health;
 	
-	private StatusEffect[] statusEffects;
+	private ArrayList<StatusEffect> statusEffects;
 	private EntityState state;
 	
 	
@@ -50,6 +51,16 @@ public abstract class Entity {
 	public int heal(int healAmount) {
 		this.health += healAmount;
 		return this.health;
+	}
+	
+	// STATUS HANDLERS
+	
+	public void addStatusEffect(StatusEffect newStatus) {
+		this.statusEffects.add(newStatus);
+	}
+	
+	public void applyStatusEffects() {
+		this.statusEffects.forEach((status) -> {status.applyEffect();});
 	}
 	
 	
