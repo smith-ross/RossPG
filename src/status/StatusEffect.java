@@ -1,6 +1,6 @@
 package status;
 
-public class StatusEffect {
+public abstract class StatusEffect {
 	private StatusEffectType type;
 	private StatusEffectSeverity severity;
 	
@@ -9,8 +9,6 @@ public class StatusEffect {
 		this.severity = severity;
 	}
 	
-	public void applyEffect() {
-		System.out.println("Nothing happened!");
-	}
+	public abstract void applyEffect();
 	
 }
