@@ -20,4 +20,8 @@ public class OutputString {
 	public void writeLine() {
 		System.out.println(this.outputColor + this.lineString + ConsoleColors.RESET);
 	}
+	
+	public void setColor(String outputColor) {
+		this.outputColor = outputColor;
+	}
 }
