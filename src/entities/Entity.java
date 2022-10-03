@@ -9,8 +9,8 @@ public abstract class Entity {
 	private int maxHealth;
 	private int health;
 	
-	private ArrayList<StatusEffect> statusEffects = new ArrayList<StatusEffect>();
-	private EntityState state = EntityState.ALIVE;
+	protected ArrayList<StatusEffect> statusEffects = new ArrayList<StatusEffect>();
+	protected EntityState state = EntityState.ALIVE;
 	
 	
 	// GET SETS
