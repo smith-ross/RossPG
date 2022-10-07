@@ -1,11 +1,10 @@
 package combat;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import output.*;
 import entities.*;
+import misc.OptionSelect;
 
 public class Battle {
 	private ArrayList <Ally> party;
@@ -13,7 +12,7 @@ public class Battle {
 	
 	private BattleState state = BattleState.START;
 	
-	final private static OutputString allyOptions = new OutputString("Select an option:\n | MELEE | MOVES | CHARGE | BAG | ");
+	final private static OptionSelect allyOptions = new OptionSelect("MELEE", "MOVES", "CHARGE", "BAG");
 	
 	public Battle(Player player, Enemy enemy) { 
 		this.party = new ArrayList <Ally> ();
@@ -37,7 +36,12 @@ public class Battle {
 			turnAlly.getName(), turnAlly.getHealth(), turnAlly.getMaxHealth(), turnAlly.getMana(), turnAlly.getMaxMana()
 			));
 		
-		allyOptions.writeLine();
+		String selectedOption = allyOptions.get();
+		switch (selectedOption) {
+			case "MELEE":
+				melee();
+				break;
+		}
 		
 	}
 	
