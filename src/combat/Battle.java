@@ -12,7 +12,7 @@ public class Battle {
 	
 	private BattleState state = BattleState.START;
 	
-	final private static OptionSelect allyOptions = new OptionSelect("MELEE", "MOVES", "CHARGE", "BAG");
+	final public static OptionSelect allyOptions = new OptionSelect("MELEE", "MOVES", "CHARGE", "BAG");
 	
 	public Battle(Player player, Enemy enemy) { 
 		this.party = new ArrayList <Ally> ();
@@ -26,22 +26,11 @@ public class Battle {
 		this.enemies = enemies;
 	}
 	
-	private void melee() {}
 	
 	private void allyTurn(Ally turnAlly) {
 		assert (state != BattleState.PLAYER_TURN) : "Ally turn taken on ENEMY_TURN state!";
 		
-		System.out.println(
-			String.format(BattleStringConstant.TURN_START_MSG.getValue(), 
-			turnAlly.getName(), turnAlly.getHealth(), turnAlly.getMaxHealth(), turnAlly.getMana(), turnAlly.getMaxMana()
-			));
-		
-		String selectedOption = allyOptions.get();
-		switch (selectedOption) {
-			case "MELEE":
-				melee();
-				break;
-		}
+		new Turn(turnAlly).begin();
 		
 	}
 	
